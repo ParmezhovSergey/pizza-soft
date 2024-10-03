@@ -1,0 +1,13 @@
+.header {
+    background-color: #383232;
+    height: 50px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.users {
+    min-height: calc(100vh - 50px);
+    background-color: #f3efd9;
+}

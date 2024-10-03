@@ -1,0 +1,85 @@
+.header {
+    background-color: #383232;
+    height: 50px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.users {
+    min-height: calc(100vh - 50px);
+    background-color: #f3efd9;
+}
+
+.title {
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+.list {
+    text-align: center;
+}
+
+.name {
+    color: #520505;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #1a5b1a;
+}
+
+.btnCancel {
+    background-color: #b91818;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.btnCancel:hover {
+    background-color: #721212;
+}
+
+.checked {
+    display: flex;
+    color: #520505;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.checkedTitle {
+    padding-bottom: 2px;
+}
+
+.back {
+    margin-left: 30px;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    margin-top: 10px;
+}
+
+.back:hover {
+    background-color: #1a5b1a;
+}
+
+.modal {
+    width: 175px;
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.7;
+}

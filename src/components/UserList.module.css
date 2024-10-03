@@ -1,0 +1,72 @@
+.title {
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-weight: 700;
+}
+
+.titleEmpty {
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: red;
+}
+
+.filter {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 180px));
+    padding-top: 20px;
+}
+
+.name {
+    margin-left: 20px;
+    height: 21.5px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.nameLink {
+    margin-left: 20px;
+    height: 21.5px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.select {
+    margin-left: 20px;
+    height: 21px;
+    width: 147px;
+    margin-bottom: 10px;
+}
+
+.checkbox {
+    display: flex;
+    margin-left: 20px;
+    height: 21px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    background-color: green;
+    border-radius: 5px;
+    color: white;
+    height: 21.5px;
+    width: 170px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background-color: #1a5b1a;
+}
+
+.card {
+    padding-bottom: 20px;
+}
+
+
+
+
