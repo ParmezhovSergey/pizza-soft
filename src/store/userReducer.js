@@ -103,7 +103,6 @@ export const setChangeIsArchive = (dataUserIsArchive) => ({
 export const fetchUsers = () => {
     return async (dispatch) => {
         const response = await getUser();
-        console.log('response', response)
         dispatch(setFetchUsers(response));
     };
 };

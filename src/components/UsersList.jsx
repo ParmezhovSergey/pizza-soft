@@ -10,57 +10,85 @@ const UsersList = () => {
     const dispatch = useDispatch();
     const users = useSelector((state) => state.userReducer.users);
     const usersLocal = JSON.parse(localStorage.getItem("dataUser"))
+    const usersFilter = JSON.parse(localStorage.getItem("data"))
 
     const [userState, setUserState] = useState(usersLocal)
     const [userName, setUserName] = useState('')
     const [birthdayUser, setBirthdayUser] = useState('')
     const [userRole, setUserRole] = useState('')
-    const [isArchiveUser, setIsArchiveUser] = useState(false)
+    const [isArchiveUser, setIsArchiveUser] = useState(null)
 
 //загрузка всех пользователей
     useEffect(() => {
         if ((usersLocal === null) || (usersLocal.length === 0)) {
             dispatch(fetchUsers())
-            window.location.reload();
+            // window.location.reload();
         }
     }, []);
 
 //фильтрация по имени
     useEffect(() => {
         if (!!usersLocal) {
-            const newUser = userState.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
+            const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
             setUserState(newUser)
         }
+
     }, [userName]);
 
 //фильтрация по дате рождения
     useEffect(() => {
-        const newUser = userState.filter(i => i.birthday.includes(birthdayUser))
-        setUserState(newUser)
+        if (!!usersLocal) {
+            const newUser = usersFilter.filter(i => i.birthday.includes(birthdayUser))
+            setUserState(newUser)
+        }
     }, [birthdayUser]);
 
 //фильтрация по должности
     useEffect(() => {
-        const newUser = userState.filter(i => i.role.includes(userRole))
-        setUserState(newUser)
+        if (!!usersLocal) {
+            const newUser = usersFilter.filter(i => i.role.includes(userRole))
+            setUserState(newUser)
+        }
     }, [userRole]);
 
 //фильтрация архив
-    const btn = () => {
-        const newUser = userState.filter(i => i.isArchive !== isArchiveUser)
-        setUserState(newUser)
-        setIsArchiveUser(true)
-    }
+    useEffect(() => {
+        if ((!!usersLocal) && (isArchiveUser === true)) {
+            const newUser = usersFilter.filter(i => i.isArchive === isArchiveUser)
+            setUserState(newUser)
+        } else {
+            setUserState(usersFilter)
+        }
+    }, [isArchiveUser]);
 
 //сброс фильтров
     const resetFilter = (e) => {
         setUserState(usersLocal)
-        // dispatch(fetchUsers())
         e.preventDefault()
         setUserName('')
         setBirthdayUser('')
         setUserRole('')
-        setIsArchiveUser(false)
+        setIsArchiveUser(null)
+    }
+    const clickName = () => {
+        setBirthdayUser('')
+        setUserRole('')
+        setIsArchiveUser(null)
+    }
+    const clickBirthday = () => {
+        setUserName('')
+        setUserRole('')
+        setIsArchiveUser(null)
+    }
+    const clickRole = () => {
+        setUserName('')
+        setBirthdayUser('')
+        setIsArchiveUser(null)
+    }
+    const clickArchive = () => {
+        setUserName('')
+        setBirthdayUser('')
+        setUserRole('')
     }
 
     const Card = userState !== null
@@ -94,6 +122,7 @@ const UsersList = () => {
                         placeholder='Имя'
                         value={userName}
                         onChange={(e) => setUserName(e.target.value)}
+                        onClick={clickName}
                     />
                 </div>
                 <div className={style.name}>
@@ -102,6 +131,7 @@ const UsersList = () => {
                         placeholder='Дата рождения'
                         value={birthdayUser}
                         onChange={(e) => setBirthdayUser(e.target.value)}
+                        onClick={clickBirthday}
                     />
                 </div>
                 <div>
@@ -109,6 +139,7 @@ const UsersList = () => {
                         className={style.select}
                         value={userRole}
                         onChange={(e) => setUserRole(e.target.value)}
+                        onClick={clickRole}
                     >
                         <option value=''>Должность</option>
                         <option value='cook'>Повар</option>
@@ -120,12 +151,13 @@ const UsersList = () => {
                     <input
                         type={"checkbox"}
                         checked={isArchiveUser}
-                        onChange={(e) => btn(e.target.checked)}
+                        onChange={(e) => setIsArchiveUser(e.target.checked)}
+                        onClick={clickArchive}
                     />
                     в архиве
                 </div>
                 <div className={style.name}>
-                    <button className={style.btn} onClick={resetFilter}>Сбросить фильтры</button>
+                    <button className={style.btnReset} onClick={resetFilter}>Сбросить фильтры</button>
                 </div>
             </div>
 
@@ -138,15 +170,9 @@ const UsersList = () => {
             </div>
 
             <div>
-                {userState?.length > 0 ? (
-                    <div className={style.title}>
-                        Список сотрудников
-                    </div>
-                ) : (
-                    <div className={style.titleEmpty}>
-                        Список сотрудников пуст (сбросьте фильтры)
-                    </div>
-                )}
+                <div className={style.title}>
+                    Список сотрудников
+                </div>
                 <div className={style.card}>
                     {Card}
                 </div>

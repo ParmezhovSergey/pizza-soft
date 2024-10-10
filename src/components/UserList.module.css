@@ -55,12 +55,26 @@
     border-radius: 5px;
     color: white;
     height: 21.5px;
-    width: 170px;
+    width: 150px;
     margin-bottom: 10px;
+    align-items: end;
 }
 
 .btn:hover {
     background-color: #1a5b1a;
+}
+
+.btnReset {
+    background-color: orangered;
+    border-radius: 5px;
+    color: white;
+    height: 21.5px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.btnReset:hover {
+    background-color: #8a3906;
 }
 
 .card {

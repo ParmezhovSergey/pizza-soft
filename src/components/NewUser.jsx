@@ -47,6 +47,7 @@ const NewUser = () => {
     const btn = () => {
         setModal(true)
         users.push(newUser)
+        localStorage.setItem("data", JSON.stringify(users))
         return localStorage.setItem("dataUser", JSON.stringify(users))
     }
 

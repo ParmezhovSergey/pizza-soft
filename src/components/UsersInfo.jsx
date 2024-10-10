@@ -49,12 +49,14 @@ const UsersInfo = () => {
     const btn = () => {
         setModal(true)
         const newUsers = users.map(item => item.id === changeUser.id ? changeUser : item)
+        localStorage.setItem("data", JSON.stringify(newUsers))
         return localStorage.setItem("dataUser", JSON.stringify(newUsers))
     }
 
     const btnRemove = () => {
         navigate('/pizza-soft')
         const newUsers = users.filter(item => item.id !== changeUser.id)
+        localStorage.setItem("data", JSON.stringify(newUsers))
         return localStorage.setItem("dataUser", JSON.stringify(newUsers))
     }
 
