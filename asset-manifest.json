@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pizza-soft/static/css/main.0c2065c6.css",
-    "main.js": "/pizza-soft/static/js/main.fa8ca9bb.js",
+    "main.js": "/pizza-soft/static/js/main.95508a94.js",
     "static/media/pizzasoft.png": "/pizza-soft/static/media/pizzasoft.c7db558807b4b7074782.png",
     "index.html": "/pizza-soft/index.html",
     "main.0c2065c6.css.map": "/pizza-soft/static/css/main.0c2065c6.css.map",
-    "main.fa8ca9bb.js.map": "/pizza-soft/static/js/main.fa8ca9bb.js.map"
+    "main.95508a94.js.map": "/pizza-soft/static/js/main.95508a94.js.map"
   },
   "entrypoints": [
     "static/css/main.0c2065c6.css",
-    "static/js/main.fa8ca9bb.js"
+    "static/js/main.95508a94.js"
   ]
 }
