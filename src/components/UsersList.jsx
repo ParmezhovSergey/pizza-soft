@@ -29,8 +29,9 @@ const UsersList = () => {
 //фильтрация по имени
     useEffect(() => {
         console.log('useeffect', usersLocal)
-        if ((usersLocal !== null) || (usersLocal.length > 0)) {
+        if (usersLocal === null) {
             console.log('useeffect1', usersLocal)
+        } else {
             const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
             setUserState(newUser)
         }
