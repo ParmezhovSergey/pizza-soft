@@ -27,38 +27,38 @@ const UsersList = () => {
     }, []);
 
 //фильтрация по имени
-    useEffect(() => {
-        if ((usersLocal !== null) && (usersLocal.length > 0)) {
-            const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
-            setUserState(newUser)
-        }
-    }, [userName]);
+//     useEffect(() => {
+//         if ((usersLocal !== null) && (usersLocal.length > 0)) {
+//             const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
+//             setUserState(newUser)
+//         }
+//     }, [userName]);
 
 //фильтрация по дате рождения
-    useEffect(() => {
-        if ((usersLocal !== null) && (usersLocal.length > 0)) {
-            const newUser = usersFilter.filter(i => i.birthday.includes(birthdayUser))
-            setUserState(newUser)
-        }
-    }, [birthdayUser]);
+//     useEffect(() => {
+//         if ((usersLocal !== null) && (usersLocal.length > 0)) {
+//             const newUser = usersFilter.filter(i => i.birthday.includes(birthdayUser))
+//             setUserState(newUser)
+//         }
+//     }, [birthdayUser]);
 
 //фильтрация по должности
-    useEffect(() => {
-        if ((usersLocal !== null) && (usersLocal.length > 0)) {
-            const newUser = usersFilter.filter(i => i.role.includes(userRole))
-            setUserState(newUser)
-        }
-    }, [userRole]);
+//     useEffect(() => {
+//         if ((usersLocal !== null) && (usersLocal.length > 0)) {
+//             const newUser = usersFilter.filter(i => i.role.includes(userRole))
+//             setUserState(newUser)
+//         }
+//     }, [userRole]);
 
 //фильтрация архив
-    useEffect(() => {
-        if ((usersLocal !== null) && (isArchiveUser === true) && (usersLocal.length > 0)) {
-            const newUser = usersFilter.filter(i => i.isArchive === isArchiveUser)
-            setUserState(newUser)
-        } else {
-            setUserState(usersFilter)
-        }
-    }, [isArchiveUser]);
+//     useEffect(() => {
+//         if ((usersLocal !== null) && (isArchiveUser === true) && (usersLocal.length > 0)) {
+//             const newUser = usersFilter.filter(i => i.isArchive === isArchiveUser)
+//             setUserState(newUser)
+//         } else {
+//             setUserState(usersFilter)
+//         }
+//     }, [isArchiveUser]);
 
 //сброс фильтров
     const resetFilter = (e) => {
