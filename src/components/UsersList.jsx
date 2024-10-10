@@ -28,9 +28,9 @@ const UsersList = () => {
 
 //фильтрация по имени
     useEffect(() => {
-        console.log('useeffect', usersLocal)
-        if (usersLocal === null) {
-            console.log('useeffect1', usersLocal)
+        console.log('useeffect', usersFilter)
+        if (usersFilter === null) {
+            console.log('useeffect1', usersFilter)
         } else {
             const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
             setUserState(newUser)
@@ -39,7 +39,7 @@ const UsersList = () => {
 
 //фильтрация по дате рождения
     useEffect(() => {
-        if ((usersLocal !== null) || (usersLocal.length > 0)) {
+        if ((usersFilter !== null) || (usersFilter.length > 0)) {
             const newUser = usersFilter.filter(i => i.birthday.includes(birthdayUser))
             setUserState(newUser)
         }
@@ -47,7 +47,7 @@ const UsersList = () => {
 
 //фильтрация по должности
     useEffect(() => {
-        if ((usersLocal !== null) || (usersLocal.length > 0)) {
+        if ((usersFilter !== null) || (usersFilter.length > 0)) {
             const newUser = usersFilter.filter(i => i.role.includes(userRole))
             setUserState(newUser)
         }
