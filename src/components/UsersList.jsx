@@ -22,6 +22,7 @@ const UsersList = () => {
     useEffect(() => {
         if ((usersLocal === null) || (usersLocal.length === 0)) {
             dispatch(fetchUsers())
+            window.location.reload();
         }
     }, []);
 
