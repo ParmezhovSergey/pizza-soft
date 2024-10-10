@@ -30,6 +30,7 @@ const UsersList = () => {
     useEffect(() => {
         console.log('useeffect', usersLocal)
         if ((usersLocal !== null) && (usersLocal.length > 0)) {
+            console.log('useeffect1', usersLocal)
             const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
             setUserState(newUser)
         }
