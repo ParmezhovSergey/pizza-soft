@@ -22,15 +22,12 @@ const UsersList = () => {
     useEffect(() => {
         if ((usersLocal === null) || (usersFilter === null)) {
             dispatch(fetchUsers())
-            //window.location.reload();
         }
     }, []);
 
 //фильтрация по имени
     useEffect(() => {
-        console.log('useeffect', usersLocal)
         if (usersFilter !== null) {
-            console.log('useeffect1', usersFilter)
             const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
             setUserState(newUser)
         }
@@ -38,7 +35,7 @@ const UsersList = () => {
 
 //фильтрация по дате рождения
     useEffect(() => {
-        if ((usersFilter !== null) && (usersFilter.length > 0)) {
+        if (usersFilter !== null) {
             const newUser = usersFilter.filter(i => i.birthday.includes(birthdayUser))
             setUserState(newUser)
         }
@@ -46,7 +43,7 @@ const UsersList = () => {
 
 //фильтрация по должности
     useEffect(() => {
-        if ((usersFilter !== null) && (usersFilter.length > 0)) {
+        if (usersFilter !== null) {
             const newUser = usersFilter.filter(i => i.role.includes(userRole))
             setUserState(newUser)
         }
@@ -54,7 +51,7 @@ const UsersList = () => {
 
 //фильтрация архив
     useEffect(() => {
-        if ((usersLocal !== null) && (isArchiveUser === true) && (usersLocal.length > 0)) {
+        if ((usersLocal !== null) && (isArchiveUser === true)) {
             const newUser = usersFilter.filter(i => i.isArchive === isArchiveUser)
             setUserState(newUser)
         } else {
