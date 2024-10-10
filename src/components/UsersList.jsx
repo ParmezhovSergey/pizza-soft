@@ -22,16 +22,15 @@ const UsersList = () => {
     useEffect(() => {
         if ((usersLocal === null) || (usersLocal.length === 0)) {
             dispatch(fetchUsers())
-            window.location.reload();
+            //window.location.reload();
         }
     }, []);
 
 //фильтрация по имени
     useEffect(() => {
         console.log('useeffect', usersFilter)
-        if (usersFilter === null) {
+        if (usersFilter !== null) {
             console.log('useeffect1', usersFilter)
-        } else {
             const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
             setUserState(newUser)
         }
@@ -39,7 +38,7 @@ const UsersList = () => {
 
 //фильтрация по дате рождения
     useEffect(() => {
-        if ((usersFilter !== null) || (usersFilter.length > 0)) {
+        if ((usersFilter !== null) && (usersFilter.length > 0)) {
             const newUser = usersFilter.filter(i => i.birthday.includes(birthdayUser))
             setUserState(newUser)
         }
@@ -47,7 +46,7 @@ const UsersList = () => {
 
 //фильтрация по должности
     useEffect(() => {
-        if ((usersFilter !== null) || (usersFilter.length > 0)) {
+        if ((usersFilter !== null) && (usersFilter.length > 0)) {
             const newUser = usersFilter.filter(i => i.role.includes(userRole))
             setUserState(newUser)
         }
@@ -55,7 +54,7 @@ const UsersList = () => {
 
 //фильтрация архив
     useEffect(() => {
-        if ((usersLocal !== null) || (isArchiveUser === true) || (usersLocal.length > 0)) {
+        if ((usersLocal !== null) && (isArchiveUser === true) && (usersLocal.length > 0)) {
             const newUser = usersFilter.filter(i => i.isArchive === isArchiveUser)
             setUserState(newUser)
         } else {
