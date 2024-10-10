@@ -161,7 +161,7 @@ const UsersList = () => {
 
             <div className={style.nameLink}>
                 <button className={style.btn}>
-                    <NavLink to="/pizza-soft/новый сотрудник" style={{textDecoration: 'none', color: 'inherit'}}>
+                    <NavLink to="/pizza-soft/новый-сотрудник" style={{textDecoration: 'none', color: 'inherit'}}>
                         Добавить сотрудника
                     </NavLink>
                 </button>

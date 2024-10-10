@@ -9,7 +9,7 @@ function App() {
         <Routes>
             <Route path="/pizza-soft" element={<MainPage/>}/>
             <Route path="/pizza-soft/сотрудник/:id/:name" element={<UsersInfo/>}/>
-            <Route path="/pizza-soft/новый сотрудник" element={<NewUser/>}/>
+            <Route path="/pizza-soft/новый-сотрудник" element={<NewUser/>}/>
         </Routes>
     );
 }
