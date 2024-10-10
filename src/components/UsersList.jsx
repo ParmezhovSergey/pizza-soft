@@ -20,7 +20,7 @@ const UsersList = () => {
 
 //загрузка всех пользователей
     useEffect(() => {
-        if ((usersLocal === null) || (usersLocal.length === 0)) {
+        if (usersLocal === null) {
             dispatch(fetchUsers())
             window.location.reload();
         }
@@ -28,6 +28,7 @@ const UsersList = () => {
 
 //фильтрация по имени
     useEffect(() => {
+        console.log('useeffect', usersLocal)
         if ((usersLocal !== null) && (usersLocal.length > 0)) {
             const newUser = usersFilter.filter(i => i.name.toLowerCase().includes(userName.toLowerCase()))
             setUserState(newUser)
